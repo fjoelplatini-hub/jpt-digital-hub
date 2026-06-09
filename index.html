@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JPT Digital Hub | Agence Digitale Internationale</title>
+
+<meta name="description" content="JPT Digital Hub crée des sites web premium, rapides et optimisés SEO pour les entreprises ambitieuses.">
+<meta name="keywords" content="agence digitale, création site web, marketing digital, design professionnel, Cameroun">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="JPT Digital Hub | Agence Digitale Internationale">
+<meta property="og:description" content="Sites web premium et solutions digitales pour entreprises ambitieuses.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="logo.webp">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL ================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#05070f;
+color:white;
+overflow-x:hidden;
+}
+
+/* ================= LOADER ================= */
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#05070f;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.loader-circle{
+width:50px;
+height:50px;
+border:4px solid rgba(255,255,255,0.1);
+border-top:4px solid #3b82f6;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+/* ================= HEADER ================= */
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 28px;
+background:rgba(0,0,0,0.55);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,0.06);
+z-index:1000;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.brand img{
+width:45px;
+height:45px;
+border-radius:12px;
+}
+
+.brand h1{
+font-size:18px;
+font-weight:700;
+}
+
+/* ================= MENU ================= */
+nav{
+display:flex;
+gap:20px;
+}
+
+nav a{
+color:#cbd5e1;
+text-decoration:none;
+font-size:14px;
+position:relative;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-4px;
+width:0%;
+height:2px;
+background:#3b82f6;
+transition:0.3s;
+}
+
+nav a:hover{
+color:white;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+/* ================= MOBILE MENU ================= */
+.menu-toggle{
+display:none;
+font-size:28px;
+color:white;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+nav{
+position:fixed;
+top:70px;
+left:0;
+right:0;
+background:rgba(0,0,0,0.95);
+flex-direction:column;
+padding:20px;
+gap:15px;
+display:none;
+}
+
+nav.active{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+}
+
+/* ================= HERO ================= */
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px;
+background:
+linear-gradient(rgba(0,0,0,0.82),rgba(0,0,0,0.85)),
+url('fondsite.webp') center/cover no-repeat;
+background-attachment:fixed;
+}
+
+.hero h1{
+font-size:60px;
+font-weight:800;
+max-width:950px;
+line-height:1.1;
+}
+
+.hero span{ color:#3b82f6; }
+
+.hero p{
+margin-top:20px;
+font-size:18px;
+max-width:750px;
+color:#d1d5db;
+}
+
+/* ================= CTA ================= */
+.cta{
+margin-top:35px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.btn{
+padding:14px 22px;
+border-radius:12px;
+font-size:14px;
+font-weight:600;
+text-decoration:none;
+}
+
+.btn:hover{
+transform:translateY(-6px);
+}
+
+.primary{ background:#2563eb; color:white; }
+.secondary{
+border:1px solid rgba(255,255,255,0.15);
+background:rgba(255,255,255,0.04);
+color:white;
+}
+
+/* ================= SECTIONS ================= */
+section{
+padding:110px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:60px;
+font-weight:800;
+}
+
+/* ================= GRID ================= */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+/* ================= CARD ================= */
+.card{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.06);
+border-radius:22px;
+padding:25px;
+transition:0.4s;
+backdrop-filter:blur(12px);
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(37,99,235,0.18);
+}
+
+.card img{
+width:100%;
+height:auto;
+display:block;
+border-radius:16px;
+margin-bottom:15px;
+}
+
+/* ================= TESTIMONIAL ================= */
+.testimonial{
+padding:22px;
+border-radius:18px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.06);
+}
+
+/* ================= FORM ================= */
+form input,
+form textarea,
+form select{
+width:100%;
+padding:15px;
+margin-bottom:12px;
+border:none;
+border-radius:12px;
+background:rgba(255,255,255,0.05);
+color:white;
+outline:none;
+}
+
+form button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#2563eb;
+color:white;
+font-weight:600;
+cursor:pointer;
+}
+
+form button:hover{
+transform:translateY(-4px);
+}
+
+/* ================= WHATSAPP ================= */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;
+height:60px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+z-index:999;
+}
+
+/* ================= HERO MOBILE FIX ================= */
+@media (max-width: 768px){
+
+.hero h1{
+font-size: 34px;
+line-height: 1.2;
+}
+
+.hero p{
+font-size: 15px;
+padding: 0 10px;
+}
+
+.hero{
+padding: 140px 15px;
+}
+
+.cta{
+flex-direction: column;
+align-items: center;
+}
+
+.btn{
+width: 100%;
+max-width: 280px;
+text-align: center;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+<div class="loader-circle"></div>
+</div>
+
+<header>
+<div class="brand">
+<img src="logo2.webp">
+<h1>JPT Digital Hub</h1>
+</div>
+
+<div class="menu-toggle">☰</div>
+
+<nav>
+<a href="#services">Services</a>
+<a href="#portfolio">Réalisations</a>
+<a href="#testimonials">Avis</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Agence digitale <span>internationale</span> pour entreprises ambitieuses</h1>
+<p>Sites web premium, branding professionnel et solutions digitales pour accélérer votre croissance.</p>
+
+<div class="cta">
+<a class="btn primary" href="https://wa.me/237693984180">Demander un devis</a>
+<a class="btn secondary" href="#services">Explorer</a>
+</div>
+</section>
+
+<section id="services">
+<h2 class="section-title">Nos Services</h2>
+<div class="grid">
+
+<div class="card">
+<img src="siteweb.webp">
+<h3>Création Sites Web Premium</h3>
+<p>Sites vitrines modernes et rapides.</p>
+</div>
+
+<div class="card">
+<img src="design branding.webp">
+<h3>Design & Branding</h3>
+<p>Identité visuelle professionnelle.</p>
+</div>
+
+<div class="card">
+<img src="JPT_Marketing_Digital.webp">
+<h3>Marketing Digital</h3>
+<p>Stratégies pour attirer des clients.</p>
+</div>
+
+</div>
+</section>
+
+<section id="portfolio">
+<h2 class="section-title">Réalisations</h2>
+<div class="grid">
+
+<div class="card">
+<img src="typesite.webp">
+<h3>Site Entreprise</h3>
+</div>
+
+<div class="card">
+<img src="important 3.webp">
+<h3>E-commerce</h3>
+</div>
+
+<div class="card">
+<img src="création logo.webp">
+<h3>Logo Design</h3>
+</div>
+
+</div>
+</section>
+
+<section id="testimonials">
+<h2 class="section-title">Témoignages</h2>
+<div class="grid">
+<div class="testimonial">⭐⭐⭐⭐⭐ Très professionnel.</div>
+<div class="testimonial">⭐⭐⭐⭐⭐ Excellent service.</div>
+<div class="testimonial">⭐⭐⭐⭐⭐ Résultat premium.</div>
+</div>
+</section>
+
+<section id="contact">
+<h2 class="section-title">Contact</h2>
+
+<form action="https://formsubmit.co/fjoelplatini@gmail.com" method="POST">
+<input type="text" name="Nom" placeholder="Nom" required>
+<input type="email" name="Email" placeholder="Email" required>
+<select name="Budget">
+<option>Budget</option>
+<option>50k - 100k</option>
+<option>100k - 250k</option>
+<option>250k+</option>
+</select>
+<textarea name="Message" placeholder="Décris ton projet..." required></textarea>
+<button type="submit">Envoyer</button>
+</form>
+
+</section>
+
+<footer style="text-align:center;padding:40px;color:gray;">
+© 2026 JPT Digital Hub
+</footer>
+
+<a class="whatsapp" href="https://wa.me/237693984180">💬</a>
+
+<script>
+window.addEventListener("load", ()=>{
+document.getElementById("loader").style.display="none";
+});
+
+const toggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector("nav");
+
+toggle.addEventListener("click", ()=>{
+nav.classList.toggle("active");
+});
+</script>
+
+</body>
+</html>
