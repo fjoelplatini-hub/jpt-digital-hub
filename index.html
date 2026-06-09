@@ -206,16 +206,14 @@ font-weight:600;
 text-decoration:none;
 }
 
-.btn:hover{
-transform:translateY(-6px);
-}
-
 .primary{ background:#2563eb; color:white; }
 .secondary{
 border:1px solid rgba(255,255,255,0.15);
 background:rgba(255,255,255,0.04);
 color:white;
 }
+
+.btn:hover{ transform:translateY(-6px); }
 
 /* ================= SECTIONS ================= */
 section{
@@ -256,8 +254,6 @@ box-shadow:0 20px 50px rgba(37,99,235,0.18);
 
 .card img{
 width:100%;
-height:auto;
-display:block;
 border-radius:16px;
 margin-bottom:15px;
 }
@@ -315,33 +311,13 @@ font-size:28px;
 z-index:999;
 }
 
-/* ================= HERO MOBILE FIX ================= */
+/* ================= MOBILE ================= */
 @media (max-width: 768px){
-
-.hero h1{
-font-size: 34px;
-line-height: 1.2;
-}
-
-.hero p{
-font-size: 15px;
-padding: 0 10px;
-}
-
-.hero{
-padding: 140px 15px;
-}
-
-.cta{
-flex-direction: column;
-align-items: center;
-}
-
-.btn{
-width: 100%;
-max-width: 280px;
-text-align: center;
-}
+.hero h1{font-size:34px;line-height:1.2;}
+.hero p{font-size:15px;padding:0 10px;}
+.hero{padding:140px 15px;}
+.cta{flex-direction:column;align-items:center;}
+.btn{width:100%;max-width:280px;text-align:center;}
 }
 
 </style>
@@ -439,16 +415,26 @@ text-align: center;
 <h2 class="section-title">Contact</h2>
 
 <form action="https://formsubmit.co/fjoelplatini@gmail.com" method="POST">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_subject" value="Nouveau message JPT Digital Hub">
+<input type="hidden" name="_next" value="https://fjoelplatini-hub.github.io/">
+
 <input type="text" name="Nom" placeholder="Nom" required>
 <input type="email" name="Email" placeholder="Email" required>
-<select name="Budget">
-<option>Budget</option>
+
+<select name="Budget" required>
+<option value="">Budget</option>
 <option>50k - 100k</option>
 <option>100k - 250k</option>
 <option>250k+</option>
 </select>
+
 <textarea name="Message" placeholder="Décris ton projet..." required></textarea>
+
 <button type="submit">Envoyer</button>
+
 </form>
 
 </section>
