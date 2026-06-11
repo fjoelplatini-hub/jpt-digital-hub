@@ -11,16 +11,12 @@
 <meta name="keywords" content="agence digitale, création site web, marketing digital, design professionnel, Cameroun">
 <meta name="robots" content="index, follow">
 
-<meta property="og:title" content="JPT Digital Hub | Agence Digitale Internationale">
-<meta property="og:description" content="Sites web premium et solutions digitales pour entreprises ambitieuses.">
-<meta property="og:type" content="website">
-
 <link rel="icon" href="logo.webp">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= GLOBAL ================= */
+/* GLOBAL */
 *{
 margin:0;
 padding:0;
@@ -35,34 +31,13 @@ color:white;
 overflow-x:hidden;
 }
 
-/* ================= LOADER ================= */
-#loader{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#05070f;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999;
+/* IMAGES */
+img{
+max-width:100%;
+display:block;
 }
 
-.loader-circle{
-width:50px;
-height:50px;
-border:4px solid rgba(255,255,255,0.1);
-border-top:4px solid #3b82f6;
-border-radius:50%;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-100%{transform:rotate(360deg);}
-}
-
-/* ================= HEADER ================= */
+/* ================= HEADER FIX FINAL ================= */
 header{
 position:fixed;
 top:0;
@@ -74,91 +49,56 @@ align-items:center;
 padding:16px 28px;
 background:rgba(0,0,0,0.55);
 backdrop-filter:blur(18px);
-border-bottom:1px solid rgba(255,255,255,0.06);
 z-index:1000;
+gap:20px;
 }
 
+/* LOGO */
 .brand{
 display:flex;
 align-items:center;
 gap:12px;
+flex-shrink:0;
 }
 
 .brand img{
 width:45px;
 height:45px;
 border-radius:12px;
+object-fit:cover;
 }
 
 .brand h1{
 font-size:18px;
 font-weight:700;
+white-space:nowrap;
 }
 
-/* ================= MENU ================= */
+/* NAV */
 nav{
 display:flex;
 gap:20px;
+flex-wrap:wrap;
+justify-content:flex-end;
+align-items:center;
 }
 
 nav a{
 color:#cbd5e1;
 text-decoration:none;
 font-size:14px;
-position:relative;
-}
-
-nav a::after{
-content:"";
-position:absolute;
-left:0;
-bottom:-4px;
-width:0%;
-height:2px;
-background:#3b82f6;
+padding:6px 10px;
+border-radius:8px;
 transition:0.3s;
+white-space:nowrap;
 }
 
 nav a:hover{
 color:white;
+background:rgba(255,255,255,0.06);
 }
 
-nav a:hover::after{
-width:100%;
-}
-
-/* ================= MOBILE MENU ================= */
-.menu-toggle{
-display:none;
-font-size:28px;
-color:white;
-cursor:pointer;
-}
-
-@media(max-width:768px){
-
-nav{
-position:fixed;
-top:70px;
-left:0;
-right:0;
-background:rgba(0,0,0,0.95);
-flex-direction:column;
-padding:20px;
-gap:15px;
-display:none;
-}
-
-nav.active{
-display:flex;
-}
-
-.menu-toggle{
-display:block;
-}
-}
-
-/* ================= HERO ================= */
+/* HERO */
 .hero{
 min-height:100vh;
 display:flex;
@@ -189,7 +129,7 @@ max-width:750px;
 color:#d1d5db;
 }
 
-/* ================= CTA ================= */
+/* CTA */
 .cta{
 margin-top:35px;
 display:flex;
@@ -206,10 +146,6 @@ font-weight:600;
 text-decoration:none;
 }
 
-.btn:hover{
-transform:translateY(-6px);
-}
-
 .primary{ background:#2563eb; color:white; }
 .secondary{
 border:1px solid rgba(255,255,255,0.15);
@@ -217,7 +153,7 @@ background:rgba(255,255,255,0.04);
 color:white;
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 section{
 padding:110px 20px;
 max-width:1200px;
@@ -231,46 +167,80 @@ margin-bottom:60px;
 font-weight:800;
 }
 
-/* ================= GRID ================= */
+/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
 }
 
-/* ================= CARD ================= */
+/* CARD */
 .card{
 background:rgba(255,255,255,0.04);
 border:1px solid rgba(255,255,255,0.06);
 border-radius:22px;
 padding:25px;
 transition:0.4s;
-backdrop-filter:blur(12px);
-overflow:hidden;
 }
 
 .card:hover{
 transform:translateY(-10px);
-box-shadow:0 20px 50px rgba(37,99,235,0.18);
 }
 
+/* IMAGES - FIX PRINCIPAL */
 .card img{
 width:100%;
-height:auto;
-display:block;
+height:220px;
+object-fit:cover;
+object-position:center;
 border-radius:16px;
 margin-bottom:15px;
+background:rgba(0,0,0,0.2);
+display:block;
 }
 
-/* ================= TESTIMONIAL ================= */
+.project img{
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:12px;
+margin:10px 0;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+object-position:center;
+border-radius:12px;
+display:block;
+}
+
+/* TESTIMONIAL */
 .testimonial{
 padding:22px;
 border-radius:18px;
 background:rgba(255,255,255,0.04);
 border:1px solid rgba(255,255,255,0.06);
+text-align:center;
 }
 
-/* ================= FORM ================= */
+/* PRICE */
+.price{
+font-size:28px;
+margin:15px 0;
+font-weight:800;
+color:#3b82f6;
+}
+
+/* FORM */
 form input,
 form textarea,
 form select{
@@ -281,7 +251,6 @@ border:none;
 border-radius:12px;
 background:rgba(255,255,255,0.05);
 color:white;
-outline:none;
 }
 
 form button{
@@ -295,11 +264,7 @@ font-weight:600;
 cursor:pointer;
 }
 
-form button:hover{
-transform:translateY(-4px);
-}
-
-/* ================= WHATSAPP ================= */
+/* WHATSAPP */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -312,35 +277,37 @@ display:flex;
 align-items:center;
 justify-content:center;
 font-size:28px;
-z-index:999;
 }
 
-/* ================= HERO MOBILE FIX ================= */
-@media (max-width: 768px){
+/* MOBILE FIX */
+@media (max-width:768px){
 
-.hero h1{
-font-size: 34px;
-line-height: 1.2;
+header{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
 }
 
-.hero p{
-font-size: 15px;
-padding: 0 10px;
+.hero h1{font-size:34px;}
+.hero p{font-size:15px;}
+.cta{flex-direction:column;}
+.card img{
+height:180px;
+object-fit:cover;
+object-position:center;
+}
+.project img{height:220px;}
+.gallery img{height:160px;}
+
+nav{
+width:100%;
+justify-content:flex-start;
+flex-wrap:wrap;
+gap:10px;
 }
 
-.hero{
-padding: 140px 15px;
-}
-
-.cta{
-flex-direction: column;
-align-items: center;
-}
-
-.btn{
-width: 100%;
-max-width: 280px;
-text-align: center;
+nav a{
+font-size:13px;
 }
 }
 
@@ -349,17 +316,12 @@ text-align: center;
 
 <body>
 
-<div id="loader">
-<div class="loader-circle"></div>
-</div>
-
+<!-- HEADER FIXÉ -->
 <header>
 <div class="brand">
-<img src="logo2.webp">
+<img src="logo2.webp" alt="logo">
 <h1>JPT Digital Hub</h1>
 </div>
-
-<div class="menu-toggle">☰</div>
 
 <nav>
 <a href="#services">Services</a>
@@ -369,24 +331,27 @@ text-align: center;
 </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
 <h1>Agence digitale <span>internationale</span> pour entreprises ambitieuses</h1>
 <p>Sites web premium, branding professionnel et solutions digitales pour accélérer votre croissance.</p>
 
 <div class="cta">
-<a class="btn primary" href="https://wa.me/237693984180">Demander un devis</a>
+<a class="btn primary" href="https://wa.me/237693984180?text=Bonjour%2C%20je%20veux%20un%20site%20web">Demander un devis rapide</a>
 <a class="btn secondary" href="#services">Explorer</a>
 </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services">
 <h2 class="section-title">Nos Services</h2>
+
 <div class="grid">
 
 <div class="card">
 <img src="siteweb.webp">
-<h3>Création Sites Web Premium</h3>
-<p>Sites vitrines modernes et rapides.</p>
+<h3>Sites Web Premium</h3>
+<p>Sites modernes et rapides.</p>
 </div>
 
 <div class="card">
@@ -398,56 +363,183 @@ text-align: center;
 <div class="card">
 <img src="JPT_Marketing_Digital.webp">
 <h3>Marketing Digital</h3>
-<p>Stratégies pour attirer des clients.</p>
+<p>Attirer plus de clients.</p>
 </div>
 
 </div>
 </section>
 
+<!-- PACKS -->
+<section>
+<h2 class="section-title">Nos Packs</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Pack Starter</h3>
+<p>Site vitrine simple + WhatsApp</p>
+<div class="price">70 000 FCFA</div>
+<a class="btn primary" href="https://wa.me/237693984180?text=Pack%20Starter">Commander</a>
+</div>
+
+<div class="card">
+<h3>Pack Business</h3>
+<p>Site Professionnel + SEO</p>
+<div class="price">175 000 FCFA</div>
+<a class="btn primary" href="https://wa.me/237693984180?text=Pack%20Business">Commander</a>
+</div>
+
+<div class="card">
+<h3>Pack Premium</h3>
+<p>Site complet + branding</p>
+<div class="price">350 000 FCFA</div>
+<a class="btn primary" href="https://wa.me/237693984180?text=Pack%20Premium">Commander</a>
+</div>
+
+</div>
+</section>
+<section>
+<h2 class="section-title">Pourquoi Nous Choisir ?</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>⚡ Rapide</h3>
+<p>Sites modernes, rapides et optimisés pour tous les appareils.</p>
+</div>
+
+<div class="card">
+<h3>📈 Optimisé SEO</h3>
+<p>Conçu pour améliorer votre visibilité sur Google.</p>
+</div>
+
+<div class="card">
+<h3>🤝 Accompagnement</h3>
+<p>Support personnalisé avant et après la livraison.</p>
+</div>
+
+</div>
+</section>
+
+
+<!-- PROJETS -->
 <section id="portfolio">
-<h2 class="section-title">Réalisations</h2>
+<h2 class="section-title">Projets Réalisés</h2>
+
 <div class="grid">
 
 <div class="card">
+<span style="color:#3b82f6;font-weight:600;">Site Web</span>
+<h3>Foting et Fils</h3>
+<img src="siteee.webp">
+<p>
+Site vitrine professionnel conçu pour une entreprise locale.
+Design moderne, responsive et optimisé pour la visibilité en ligne.
+</p>
+<a href="https://fotingetfils.com" target="_blank">Voir le projet →</a>
+</div>
+
+</div>
+
+<div class="gallery">
+<img src="noelfa.webp">
+<img src="medico.webp">
+<img src="hotel.webp">
+<img src="joel.webp">
+<img src="e-commerce.webp">
+</div>
+
+<div class="testimonial" style="margin-top:40px;">
+✔ Plus de 5 projets réalisés en design web, e-commerce et branding pour des entreprises locales et internationales.
+</div>
+
+</section>
+<!-- PORTFOLIO --><!-- PORTFOLIO -->
+<section>
+<h2 class="section-title">Portfolio Studio</h2>
+
+<div class="grid">
+
+<div class="card">
+<span style="color:#3b82f6;font-weight:600;">Site Web</span>
+<h3>Sites Vitrines Professionnels</h3>
 <img src="typesite.webp">
-<h3>Site Entreprise</h3>
+<p>
+Création de sites modernes, rapides et optimisés SEO pour entreprises locales et internationales.
+</p>
 </div>
 
 <div class="card">
+<span style="color:#3b82f6;font-weight:600;">E-commerce</span>
+<h3>Boutiques en Ligne</h3>
 <img src="important 3.webp">
-<h3>E-commerce</h3>
+<p>
+Développement de sites e-commerce performants pour augmenter vos ventes en ligne.
+</p>
 </div>
 
 <div class="card">
+<span style="color:#3b82f6;font-weight:600;">Branding</span>
+<h3>Identité Visuelle</h3>
 <img src="création logo.webp">
-<h3>Logo Design</h3>
+<p>
+Création de logos et identité de marque professionnelle pour entreprises ambitieuses.
+</p>
 </div>
 
 </div>
 </section>
 
+<!-- AVIS CLIENTS -->
 <section id="testimonials">
-<h2 class="section-title">Témoignages</h2>
+<h2 class="section-title">Avis Clients</h2>
+
 <div class="grid">
-<div class="testimonial">⭐⭐⭐⭐⭐ Très professionnel.</div>
-<div class="testimonial">⭐⭐⭐⭐⭐ Excellent service.</div>
-<div class="testimonial">⭐⭐⭐⭐⭐ Résultat premium.</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<br><br>
+JPT Digital Hub a créé notre site vitrine avec professionnalisme. Le résultat dépasse nos attentes.
+<br><br>
+<strong>— Directeur de fotingetfils.com</strong>
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<br><br>
+"Excellent accompagnement du début à la fin.
+Je recommande vivement."
+<br><br>
+<strong>— Directrice de Noel Fashion</strong>
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<br><br>
+"Design élégant, site rapide et parfaitement adapté à nos besoins."
+<br><br>
+<strong>— Entreprise Locale</strong>
+</div>
+
 </div>
 </section>
 
+
+<!-- CONTACT -->
 <section id="contact">
 <h2 class="section-title">Contact</h2>
 
 <form action="https://formsubmit.co/fjoelplatini@gmail.com" method="POST">
 <input type="text" name="Nom" placeholder="Nom" required>
-<input type="email" name="Email" placeholder="Email" required>
-<select name="Budget">
-<option>Budget</option>
-<option>50k - 100k</option>
-<option>100k - 250k</option>
-<option>250k+</option>
+<input type="tel" name="Téléphone" placeholder="Téléphone">
+<select name="Service">
+<option value="">Service souhaité</option>
+<option>Site Web</option>
+<option>Logo & Branding</option>
+<option>Marketing Digital</option>
 </select>
-<textarea name="Message" placeholder="Décris ton projet..." required></textarea>
+<input type="email" name="Email" placeholder="Email" required>
+<textarea name="Message" placeholder="Projet..." required></textarea>
 <button type="submit">Envoyer</button>
 </form>
 
@@ -458,19 +550,6 @@ text-align: center;
 </footer>
 
 <a class="whatsapp" href="https://wa.me/237693984180">💬</a>
-
-<script>
-window.addEventListener("load", ()=>{
-document.getElementById("loader").style.display="none";
-});
-
-const toggle = document.querySelector(".menu-toggle");
-const nav = document.querySelector("nav");
-
-toggle.addEventListener("click", ()=>{
-nav.classList.toggle("active");
-});
-</script>
 
 </body>
 </html>
